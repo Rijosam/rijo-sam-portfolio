@@ -6,7 +6,7 @@ const INITIAL_TALKS_TO_SHOW = 4;
 const chipStyles: Record<Talk["type"], string> = {
   Conference: "bg-sky-600 hover:bg-sky-700 text-white",
   Workshop: "bg-amber-500 hover:bg-amber-600 text-black",
-  Meeting: "bg-purple-600 hover:bg-purple-700 text-white",
+  Meetup: "bg-purple-600 hover:bg-purple-700 text-white",
 };
 
 const talksToShow = talks.slice(0, INITIAL_TALKS_TO_SHOW);
@@ -15,7 +15,7 @@ const talksToShow = talks.slice(0, INITIAL_TALKS_TO_SHOW);
 <section id="talks" class="py-12 border-t border-[#ffffff10] text-[var(--white)]">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">My Talks</h2>
-    <h3 class="text-4xl md:text-5xl font-medium mb-10">Upcoming Speaking Engagements</h3>
+    <h3 class="text-4xl md:text-5xl font-medium mb-10">Speaking Engagements</h3>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       {
