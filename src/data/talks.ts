@@ -1,3 +1,5 @@
+import { parse, isValid } from "date-fns";
+
 export interface Talk {
   title: string;
   event: string;
@@ -11,7 +13,7 @@ export interface Talk {
   primaryLinkAriaLabel: string;
 }
 
-export const talks: Talk[] = [
+const unsortedtalks: Talk[] = [
   {
     title: "Tulips to Turmeric: Lessons Learned from a Global Team",
     event: "RotterdamJUG",
@@ -84,11 +86,11 @@ export const talks: Talk[] = [
     primaryLinkText: "View Event Details",
     primaryLinkAriaLabel: "View event details for JavaCro",
   },
-    //Past events
+  //Past events
   {
     title: "Tulips to Turmeric: Lessons Learned from a Global Team",
     event: "UtrechtJUG",
-    date: "May 12, 2025, 2025",
+    date: "May 12, 2025",
     status: "Past",
     type: "Meetup",
     location: "Utrecht",
@@ -194,18 +196,6 @@ export const talks: Talk[] = [
     primaryLinkAriaLabel: "View event details for J-Fall",
   },
   {
-    title: "Tulips to Turmeric: Lessons Learned from a Global Team",
-    event: "TEQNation 2024",
-    date: "May 22, 2024",
-    status: "Past",
-    type: "Conference",
-    location: "Utrecht",
-    description: "",
-    primaryLink: "https://teqnation.com/",
-    primaryLinkText: "View Event Details",
-    primaryLinkAriaLabel: "View event details for TEQNation 2024",
-  },
-  {
     title: "Clean Code: Timeless, Just Like ‘Friends’",
     event: "ABNAMRO DevCon 2024",
     date: "January 25, 2024",
@@ -216,6 +206,18 @@ export const talks: Talk[] = [
     primaryLink: "",
     primaryLinkText: "View Event Details",
     primaryLinkAriaLabel: "View event details for ABNAMRO DevCon 2024",
+  },
+  {
+    title: "Tulips to Turmeric: Lessons Learned from a Global Team",
+    event: "TEQNation 2024",
+    date: "May 22, 2024",
+    status: "Past",
+    type: "Conference",
+    location: "Utrecht",
+    description: "",
+    primaryLink: "https://teqnation.com/",
+    primaryLinkText: "View Event Details",
+    primaryLinkAriaLabel: "View event details for TEQNation 2024",
   },
   {
     title: "Tulips to Turmeric: Lessons Learned from a Global Team",
@@ -230,3 +232,27 @@ export const talks: Talk[] = [
     primaryLinkAriaLabel: "View event details for ArnhemJUG",
   },
 ];
+
+const getSortedTalksByStatus = (status: "Upcoming" | "Past"): Talk[] => {
+  const filteredTalks = [...unsortedtalks].filter((talk) => talk.status === status);
+
+  const sortOrder = status === "Upcoming" ? 1 : -1; // 1 for ascending, -1 for descending
+
+  return filteredTalks.sort((a, b) => {
+    const dateStringA = a.date.split(",")[0];
+    const dateStringB = b.date.split(",")[0];
+
+    const dateA = parse(dateStringA, "MMMM d, yyyy", new Date());
+    const dateB = parse(dateStringB, "MMMM d, yyyy", new Date());
+
+    if (!isValid(dateA) || !isValid(dateB)) {
+      console.error("Invalid date format:", dateStringA, "or", dateStringB);
+      return 0;
+    }
+
+    return sortOrder * (dateA.getTime() - dateB.getTime()); // Apply sort order
+  });
+};
+
+export const upcomingTalks: Talk[] = getSortedTalksByStatus("Upcoming");
+export const pastTalks: Talk[] = getSortedTalksByStatus("Past");

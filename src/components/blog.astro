@@ -1,0 +1,45 @@
+---
+import { Content } from "@/data/blog"; // Assuming you'll create a content.ts data file
+
+const INITIAL_CONTENT_TO_SHOW = 6;
+
+const chipStyles: Record<Content["type"], string> = {
+  Talk: "bg-rose-500 hover:bg-rose-600 text-white",
+  Podcast: "bg-teal-500 hover:bg-teal-600 text-white",
+  Blog: "bg-yellow-500 hover:bg-yellow-600 text-black",
+  Workshop: "bg-fuchsia-500 hover:bg-fuchsia-600 text-white", // Example Color
+};
+
+const contentToShow = Content.slice(0, INITIAL_CONTENT_TO_SHOW);
+---
+
+<section id="writings" class="py-12 border-t border-[#ffffff10] text-[var(--white)]">
+  <div class="max-w-6xl mx-auto px-6 py-12 md:py-16">
+    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">My Content</h2>
+    <h3 class="text-4xl md:text-5xl font-medium mb-10">Latest Content</h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {
+        contentToShow.map((item) => (
+          <div class="relative flex flex-col bg-[#181818] border border-[var(--white-icon-tr)] rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6">
+            <div class="flex-grow">
+              <div class="mb-3">
+                <h3 class="text-1xl md:text-2xl font-bold mb-1 text-[var(--white)] leading-tight">{item.title}</h3>
+                <span class={`inline-block text-xs font-semibold px-3 py-1 rounded-full ${chipStyles[item.type]}`}>{item.type}</span>
+              </div>
+            </div>
+
+            <div class="mt-auto pt-4 flex items-center gap-3">
+              <a
+                href={item.url}
+                class="flex-grow text-center px-5 py-2.5 text-sm font-medium text-[var(--white)] bg-[var(--sec)] hover:bg-opacity-80 rounded-lg transition-colors duration-300 focus:ring-4 focus:outline-none focus:ring-[var(--sec-light)]"
+              >
+                View
+              </a>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

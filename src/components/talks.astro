@@ -1,7 +1,7 @@
 ---
-import { Talk, talks } from "@/data/talks";
+import { Talk, upcomingTalks, pastTalks } from "@/data/talks";
 
-const INITIAL_TALKS_TO_SHOW = 4;
+const INITIAL_TALKS_TO_SHOW = 6;
 
 const chipStyles: Record<Talk["type"], string> = {
   Conference: "bg-sky-600 hover:bg-sky-700 text-white",
@@ -9,22 +9,22 @@ const chipStyles: Record<Talk["type"], string> = {
   Meetup: "bg-purple-600 hover:bg-purple-700 text-white",
 };
 
-const talksToShow = talks.slice(0, INITIAL_TALKS_TO_SHOW);
+const talksToShow = [...upcomingTalks, ...pastTalks].slice(0, INITIAL_TALKS_TO_SHOW);
 ---
 
 <section id="talks" class="py-12 border-t border-[#ffffff10] text-[var(--white)]">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="max-w-6xl mx-auto px-6 py-12 md:py-16">
     <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">My Talks</h2>
     <h3 class="text-4xl md:text-5xl font-medium mb-10">Speaking Engagements</h3>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {
         talksToShow.map((talk) => (
           <div class="relative flex flex-col bg-[#181818] border border-[var(--white-icon-tr)] rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6">
             <div class="flex-grow">
               {/* Event name gets top priority */}
               <div class="mb-3">
-                <h3 class="text-2xl md:text-3xl font-bold mb-1 text-[var(--white)] leading-tight">{talk.event}</h3>
+                <h3 class="text-1xl md:text-2xl font-bold mb-1 text-[var(--white)] leading-tight">{talk.event}</h3>
                 <div class="flex items-center gap-3 mb-2">
                   {talk.status === "Upcoming" && (
                     <span class="inline-block bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md hover:scale-105 hover:brightness-110 transition-all duration-200 ease-in-out cursor-default">
