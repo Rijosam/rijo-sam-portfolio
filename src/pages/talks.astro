@@ -35,15 +35,22 @@ const chipStyles: Record<Talk["type"], string> = {
           talks.map((talk) => (
             <div class="relative flex flex-col bg-[#181818] border border-[var(--white-icon-tr)] rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6">
               <div class="flex-grow">
-                <h4 class="text-2xl font-semibold mb-1 text-[var(--white)]">{talk.title}</h4>
-                <p class="text-md text-[var(--white-icon)] mb-2">{talk.event}</p>
+                {/* Event name gets top priority */}
+                <div class="mb-3">
+                  <h3 class="text-2xl md:text-3xl font-bold mb-1 text-[var(--white)] leading-tight">{talk.event}</h3>
+                  <div class="flex items-center gap-3 mb-2">
+                    {talk.status === "Upcoming" && (
+                      <span class="inline-block bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md hover:scale-105 hover:brightness-110 transition-all duration-200 ease-in-out cursor-default">
+                        UPCOMING
+                      </span>
+                    )}
+                    <span class={`inline-block text-xs font-semibold px-3 py-1 rounded-full ${chipStyles[talk.type]}`}>{talk.type}</span>
+                  </div>
+                </div>
 
-                {talk.status === "Upcoming" && (
-                  <span class="inline-block bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md mb-2 hover:scale-105 hover:brightness-110 transition-all duration-200 ease-in-out cursor-default">
-                    UPCOMING
-                  </span>
-                )}
-                <span class={`inline-block text-xs font-semibold px-3 py-1 rounded-full mb-4 ${chipStyles[talk.type]}`}>{talk.type}</span>
+                {/* Talk title is secondary */}
+                <h4 class="text-lg font-medium mb-4 text-[var(--white-icon)] leading-relaxed">{talk.title}</h4>
+
                 <div class="space-y-2 mb-4 text-[var(--white-icon)] text-sm">
                   <div class="flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 mr-2 opacity-80">
@@ -53,16 +60,17 @@ const chipStyles: Record<Talk["type"], string> = {
                         d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-3.75h.008v.008H12v-.008Z"
                       />
                     </svg>
-                    {talk.date}
+                    <span class="font-medium">{talk.date}</span>
                   </div>
                   <div class="flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 mr-2 opacity-80">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                       <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
                     </svg>
-                    {talk.location}
+                    <span class="font-medium">{talk.location}</span>
                   </div>
                 </div>
+
                 {talk.description && <p class="text-sm text-[var(--white-icon)] opacity-90 mb-4 leading-relaxed">{talk.description}</p>}
               </div>
 
