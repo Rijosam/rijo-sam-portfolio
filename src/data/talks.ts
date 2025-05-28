@@ -84,6 +84,7 @@ export const talks: Talk[] = [
     primaryLinkText: "View Event Details",
     primaryLinkAriaLabel: "View event details for JavaCro",
   },
+    //Past events
   {
     title: "Tulips to Turmeric: Lessons Learned from a Global Team",
     event: "UtrechtJUG",
