@@ -6,38 +6,23 @@ export type Content = {
 
 export const Content: Content[] = [
   {
-    title: "My Awesome Talk at AstroConf",
-    type: "Talk",
-    url: "/talks/astroconf-awesome-talk",
-  },
-  {
-    title: "The Future of Web Dev (Podcast)",
-    type: "Podcast",
-    url: "/podcasts/future-of-webdev",
-  },
-  {
-    title: "Building a Blog with Astro",
+    title: "Crafting Your Own Railway Display with Java!",
     type: "Blog",
-    url: "/blogs/building-astro-blog",
+    url: "https://foojay.io/today/crafting-your-own-railway-display-with-java/",
   },
   {
-    title: "Astro for Beginners",
-    type: "Workshop",
-    url: "/workshops/astro-beginners",
+    title: "Pseudorandom Number Generator – The Secret Behind Santa’s Gift Bag",
+    type: "Blog",
+    url: "https://foojay.io/today/pseudorandom-number-generator/",
   },
   {
-    title: "My Second Awesome Talk at AstroConf",
-    type: "Talk",
-    url: "/talks/astroconf-second-talk",
-  },
-  {
-    title: "The Past of Web Dev (Podcast)",
+    title: "As a developer, how do we keep our body and mind healthy?",
     type: "Podcast",
-    url: "/podcasts/past-of-webdev",
+    url: "https://www.youtube.com/watch?v=OYX_X2x3vl8&t=1498s",
   },
   {
-    title: "Advanced Astro",
-    type: "Workshop",
-    url: "/workshops/advanced-astro",
+    title: "Let's Talk About Java Code! Diving into Foojay blog posts",
+    type: "Podcast",
+    url: "https://www.youtube.com/watch?v=IB7drozkKUk&t=1673s",
   },
 ];
