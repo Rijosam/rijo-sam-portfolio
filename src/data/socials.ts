@@ -1,0 +1,4 @@
+export const LINKEDIN_URL = "https://www.linkedin.com/in/rijosam19/";
+export const GITHUB_URL = "https://github.com/RijoSam";
+export const STRAVA_URL = "https://github.com/RijoSam";
+export const BLUESKY_URL = "https://github.com/RijoSam";
