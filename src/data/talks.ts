@@ -11,6 +11,10 @@ export interface Talk {
   primaryLink: string;
   primaryLinkText: string;
   primaryLinkAriaLabel: string;
+  videoLink?: string;
+  videoLinkText?: string;
+  presentationLink?: string;
+  presentationLinkText?: string;
 }
 
 const unsortedtalks: Talk[] = [

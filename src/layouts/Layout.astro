@@ -1,4 +1,6 @@
 ---
+import Posthog from "@/components/posthog.astro";
+
 interface Props {
   title: string;
 }
@@ -29,8 +31,9 @@ const { title } = Astro.props;
     </noscript>
 
     <title>{title}</title>
+    <Posthog />
   </head>
-  <body class="bg-[--background] md:px-48 lg:px-20 px-4">
+  <body class="bg-[--background] px-4 md:px-12 lg:px-20 xl:px-48 2xl:px-64">
     <slot />
   </body>
 </html>
