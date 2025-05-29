@@ -2,7 +2,7 @@
 const posthogKey = import.meta.env.PUBLIC_POST_HOG;
 ---
 
-<script type="text/partytown" define:vars={{ posthogKey }}>
+<script define:vars={{ posthogKey }}>
   !(function (t, e) {
     var o, n, p, r;
     e.__SV ||
@@ -47,7 +47,6 @@ const posthogKey = import.meta.env.PUBLIC_POST_HOG;
   })(document, window.posthog || []);
 
   if (!posthogKey) {
-    console.warn("PostHog key is not set. Tracking will be disabled.");
     return;
   }
   posthog.init(posthogKey, {

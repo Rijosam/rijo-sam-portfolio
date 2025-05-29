@@ -1,0 +1,10 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background rectangle -->
+  <rect x="1" y="1" width="30" height="30" rx="4" ry="4" fill="#181414" stroke="#2a2626" stroke-width="1"/>
+  
+  <!-- Letter R (centered) -->
+  <text x="16" y="22" font-family="Arial, sans-serif" font-weight="bold" font-size="16" fill="#a476ff" text-anchor="middle">R</text>
+  
+  <!-- Subtle border highlight -->
+  <rect x="1" y="1" width="30" height="30" rx="4" ry="4" fill="none" stroke="rgba(164, 118, 255, 0.3)" stroke-width="1"/>
+</svg>
