@@ -4,7 +4,7 @@
 
 My personal portfolio website, built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/). Deployed on [Vercel](https://vercel.com/).
 
-[View Live Demo](https://your-portfolio-url.vercel.app/) <!-- TODO: Rijo, update this with your live deployment URL -->
+[View Live Demo](https://rijosam.com/) <!-- TODO: Rijo, update this with your live deployment URL -->
 
 ## **Local Setup**
 
