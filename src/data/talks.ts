@@ -102,6 +102,8 @@ const unsortedtalks: Talk[] = [
     primaryLink: "https://www.meetup.com/utrecht-java-user-group/events/305047053/?utm_medium=referral&utm_campaign=share-btn_savedevents_share_modal&utm_source=link&utm_version=v2",
     primaryLinkText: "View Event Details",
     primaryLinkAriaLabel: "View event details for UtrechtJUG",
+    presentationLink:" https://1drv.ms/p/c/9c98deced182940c/EbkkfsKsG2tGj8reVAC6Tz0BmLOIeKdVUXnRDda1Tv0tgg?e=932Fva",
+    presentationLinkText:"Slides link",
   },
   {
     title: "Tulips to Turmeric: Lessons Learned from a Global Team",
@@ -113,7 +115,9 @@ const unsortedtalks: Talk[] = [
     description: "",
     primaryLink: "https://www.meetup.com/jug-noord/events/306222257/?utm_medium=referral&utm_campaign=share-btn_savedevents_share_modal&utm_source=link&utm_version=v2",
     primaryLinkText: "View Event Details",
-    primaryLinkAriaLabel: "View event details for UtrechtJUG",
+    primaryLinkAriaLabel: "View event details for JUGNoord",
+    presentationLink:" https://1drv.ms/p/c/9c98deced182940c/EbkkfsKsG2tGj8reVAC6Tz0BmLOIeKdVUXnRDda1Tv0tgg?e=932Fva",
+    presentationLinkText:"Slides link",
   },
   {
     title: "Front-End Drama? Java's Got You Covered!",
@@ -138,6 +142,10 @@ const unsortedtalks: Talk[] = [
     primaryLink: "https://zurich.voxxeddays.com/",
     primaryLinkText: "View Event Details",
     primaryLinkAriaLabel: "View event details for Voxxed Days Zürich",
+    videoLink: "https://www.youtube.com/watch?v=BR8H189BfOM",
+    videoLinkText:"Youtube link",
+    presentationLink:"https://1drv.ms/p/c/9c98deced182940c/EfingCQucuJHsEvIgxDCr50BEaJ9CrQluzDOuyeIsh7RuQ",
+    presentationLinkText:"Slides link",
   },
   {
     title: "Tulips to Turmeric: Lessons Learned from a Global Team",
@@ -149,7 +157,7 @@ const unsortedtalks: Talk[] = [
     description: "",
     primaryLink: "https://miniconf.io/",
     primaryLinkText: "View Event Details",
-    primaryLinkAriaLabel: "View event details for UtrechtJUG",
+    primaryLinkAriaLabel: "View event details for mini.CONF",
   },
   {
     title: "Tulips to Turmeric: Lessons Learned from a Global Team",
@@ -162,6 +170,8 @@ const unsortedtalks: Talk[] = [
     primaryLink: "https://www.meetup.com/belgian-java-user-group/events/305632961/?utm_medium=referral&utm_campaign=share-btn_savedevents_share_modal&utm_source=link&utm_version=v2",
     primaryLinkText: "View Event Details",
     primaryLinkAriaLabel: "View event details for BelgianJUG",
+    presentationLink:" https://1drv.ms/p/c/9c98deced182940c/EbkkfsKsG2tGj8reVAC6Tz0BmLOIeKdVUXnRDda1Tv0tgg?e=932Fva",
+    presentationLinkText:"Slides link",
   },
   {
     title: "Tulips to Turmeric: Lessons Learned from a Global Team",
@@ -174,6 +184,8 @@ const unsortedtalks: Talk[] = [
     primaryLink: "https://www.meetup.com/amsterdam-java-user-group/events/305160845/?utm_medium=referral&utm_campaign=share-btn_savedevents_share_modal&utm_source=link&utm_version=v2",
     primaryLinkText: "View Event Details",
     primaryLinkAriaLabel: "View event details for AmsterdamJUG",
+    presentationLink:" https://1drv.ms/p/c/9c98deced182940c/EbkkfsKsG2tGj8reVAC6Tz0BmLOIeKdVUXnRDda1Tv0tgg?e=932Fva",
+    presentationLinkText:"Slides link",
   },
   {
     title: "Tulips to Turmeric: Lessons Learned from a Global Team",
@@ -186,6 +198,8 @@ const unsortedtalks: Talk[] = [
     primaryLink: "https://www.meetup.com/brabant-jug/events/304322148/?utm_medium=referral&utm_campaign=share-btn_savedevents_share_modal&utm_source=link&utm_version=v2",
     primaryLinkText: "View Event Details",
     primaryLinkAriaLabel: "View event details for BrabantJUG",
+    presentationLink:" https://1drv.ms/p/c/9c98deced182940c/EbkkfsKsG2tGj8reVAC6Tz0BmLOIeKdVUXnRDda1Tv0tgg?e=932Fva",
+    presentationLinkText:"Slides link",
   },
   {
     title: "Tulips to Turmeric: Lessons Learned from a Global Team",
@@ -198,6 +212,10 @@ const unsortedtalks: Talk[] = [
     primaryLink: "https://jfall.nl/",
     primaryLinkText: "View Event Details",
     primaryLinkAriaLabel: "View event details for J-Fall",
+    videoLink: "https://youtu.be/asp_elDaZvg?feature=shared",
+    videoLinkText:"Youtube link",
+    presentationLink:"https://1drv.ms/p/c/9c98deced182940c/EZAktnWy4c1LoeLgyWT6Y3YBrlpd-r4DkPeSrHD9Zea5bQ?e=kG9IDC",
+    presentationLinkText:"Slides link",
   },
   {
     title: "Clean Code: Timeless, Just Like ‘Friends’",
@@ -222,6 +240,10 @@ const unsortedtalks: Talk[] = [
     primaryLink: "https://teqnation.com/",
     primaryLinkText: "View Event Details",
     primaryLinkAriaLabel: "View event details for TEQNation 2024",
+    videoLink: "https://youtu.be/6qpZ8hj5fRI?feature=shared",
+    videoLinkText:"Youtube link",
+    presentationLink:"https://1drv.ms/p/c/9c98deced182940c/EeKMIpbNgSdOvnnvziNSX8wBrec6QcgBJqjdlMz2Xkk2IQ?e=3LfMFf",
+    presentationLinkText:"Slides link",
   },
   {
     title: "Tulips to Turmeric: Lessons Learned from a Global Team",
