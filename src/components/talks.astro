@@ -1,22 +1,16 @@
 ---
-import { Talk, upcomingTalks, pastTalks } from "@/data/talks";
 import TalkCard from "@/components/talkCard.astro";
+import { pastTalks, upcomingTalks } from "@/data/talks";
 const INITIAL_TALKS_TO_SHOW = 6;
-
-const chipStyles: Record<Talk["type"], string> = {
-  Conference: "bg-sky-600 hover:bg-sky-700 text-white",
-  Workshop: "bg-amber-500 hover:bg-amber-600 text-black",
-  Meetup: "bg-purple-600 hover:bg-purple-700 text-white",
-};
-
-const talksToShow = [...upcomingTalks, ...pastTalks].slice(0, INITIAL_TALKS_TO_SHOW);
+const talksToShow = [...upcomingTalks, ...pastTalks].slice(
+	0,
+	INITIAL_TALKS_TO_SHOW,
+);
 ---
 
 <section id="talks" class="py-12 border-t border-[#ffffff10] text-[var(--white)]">
   <div class="max-w-6xl mx-auto px-6 py-12 md:py-16">
     <h2 class="text-4xl md:text-4xl font-medium text-[var(--sec)] mb-10 shiny-sec">My Talks</h2>
-    <!-- <h2 class="text-lg text-[var(&#45;&#45;sec)] mb-2 shiny-sec">My Talks</h2>-->
-    <!--  <h3 class="text-4xl md:text-5xl font-medium mb-10">Speaking Engagements</h3>-->
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {talksToShow.map((talk) => <TalkCard talk={talk} />)}

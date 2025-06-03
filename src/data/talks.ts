@@ -1,261 +1,243 @@
-import { parse, isValid } from "date-fns";
-
-export interface Talk {
-  title: string;
-  event: string;
-  date: string;
-  status: "Upcoming" | "Past";
-  type: "Conference" | "Workshop" | "Meetup";
-  location: string;
-  description?: string;
-  primaryLink: string;
-  primaryLinkText: string;
-  primaryLinkAriaLabel: string;
-  videoLink?: string;
-  videoLinkText?: string;
-  presentationLink?: string;
-  presentationLinkText?: string;
-}
+import type { Talk, TalkDate } from "@/types/talks";
 
 const unsortedtalks: Talk[] = [
-  {
-    title: "Tulips to Turmeric: Lessons Learned from a Global Team",
-    event: "RotterdamJUG",
-    date: "June 3, 2025",
-    status: "Upcoming",
-    type: "Meetup",
-    location: "Rijswijk, Netherlands",
-    description: "",
-    primaryLink: "https://www.meetup.com/rotterdamjug/events/307818817/?utm_medium=referral&utm_campaign=share-btn_savedevents_share_modal&utm_source=link",
-    primaryLinkText: "View Event Details",
-    primaryLinkAriaLabel: "View event details for RotterdamJUG",
-  },
-  {
-    title: "Tulips to Turmeric: Lessons Learned from a Global Team",
-    event: "Devoxx Poland 2025",
-    date: "June 11-13, 2025",
-    status: "Upcoming",
-    type: "Conference",
-    location: "Krakow, Poland",
-    description: "",
-    primaryLink: "https://devoxx.pl/talk-details/?id=9660",
-    primaryLinkText: "View Event Details",
-    primaryLinkAriaLabel: "View event details for Devoxx Poland 2025 talk",
-  },
-  {
-    title: "Java Beyond Frameworks: Avoiding Lock-In with Agnostic Design",
-    event: "Devoxx Poland 2025",
-    date: "June 11-13, 2025",
-    status: "Upcoming",
-    type: "Conference",
-    location: "Krakow, Poland",
-    description: "",
-    primaryLink: "https://devoxx.pl/talk-details/?id=9696",
-    primaryLinkText: "View Event Details",
-    primaryLinkAriaLabel: "View event details for Devoxx Poland 2025 talk",
-  },
-  {
-    title: "Java Beyond Frameworks: Avoiding Lock-In with Agnostic Design",
-    event: "DevBcn Barcelona",
-    date: "July 08-11, 2025",
-    status: "Upcoming",
-    type: "Conference",
-    location: "Barcelona, Spain",
-    description: "",
-    primaryLink: "https://www.devbcn.com/talk/875233",
-    primaryLinkText: "View Event Details",
-    primaryLinkAriaLabel: "View event details for DevBcn",
-  },
-  {
-    title: "Java Beyond Frameworks: Avoiding Lock-In with Agnostic Design",
-    event: "JavaCro'25",
-    date: "October 12-15, 2025",
-    status: "Upcoming",
-    type: "Conference",
-    location: "Rovinj, Croatia",
-    description: "",
-    primaryLink: "https://2025.javacro.hr/eng/",
-    primaryLinkText: "View Event Details",
-    primaryLinkAriaLabel: "View event details for JavaCro",
-  },
-  {
-    title: "Tulips to Turmeric: Lessons Learned from a Global Team",
-    event: "JavaCro'25",
-    date: "October 12-15, 2025",
-    status: "Upcoming",
-    type: "Conference",
-    location: "Rovinj, Croatia",
-    description: "",
-    primaryLink: "https://2025.javacro.hr/eng/",
-    primaryLinkText: "View Event Details",
-    primaryLinkAriaLabel: "View event details for JavaCro",
-  },
-  //Past events
-  {
-    title: "Tulips to Turmeric: Lessons Learned from a Global Team",
-    event: "UtrechtJUG",
-    date: "May 12, 2025",
-    status: "Past",
-    type: "Meetup",
-    location: "Utrecht",
-    description: "",
-    primaryLink: "https://www.meetup.com/utrecht-java-user-group/events/305047053/?utm_medium=referral&utm_campaign=share-btn_savedevents_share_modal&utm_source=link&utm_version=v2",
-    primaryLinkText: "View Event Details",
-    primaryLinkAriaLabel: "View event details for UtrechtJUG",
-  },
-  {
-    title: "Tulips to Turmeric: Lessons Learned from a Global Team",
-    event: "JUGNoord",
-    date: "April 17, 2025",
-    status: "Past",
-    type: "Meetup",
-    location: "Groningen",
-    description: "",
-    primaryLink: "https://www.meetup.com/jug-noord/events/306222257/?utm_medium=referral&utm_campaign=share-btn_savedevents_share_modal&utm_source=link&utm_version=v2",
-    primaryLinkText: "View Event Details",
-    primaryLinkAriaLabel: "View event details for UtrechtJUG",
-  },
-  {
-    title: "Front-End Drama? Java's Got You Covered!",
-    event: "ABN AMRO DevCon 2025",
-    date: "March 31, 2025",
-    status: "Past",
-    type: "Conference",
-    location: "Amsterdam Zuid",
-    description: "",
-    primaryLink: "",
-    primaryLinkText: "View Event Details",
-    primaryLinkAriaLabel: "View event details for UtrechtJUG",
-  },
-  {
-    title: "Tulips to Turmeric: Lessons Learned from a Global Team",
-    event: "Voxxed Days Zürich 2025",
-    date: "March 25, 2025",
-    status: "Past",
-    type: "Conference",
-    location: "Zürich, Switzerland",
-    description: "",
-    primaryLink: "https://zurich.voxxeddays.com/",
-    primaryLinkText: "View Event Details",
-    primaryLinkAriaLabel: "View event details for Voxxed Days Zürich",
-  },
-  {
-    title: "Tulips to Turmeric: Lessons Learned from a Global Team",
-    event: "mini.CONF - Episode X",
-    date: "March 20, 2025",
-    status: "Past",
-    type: "Conference",
-    location: "s-Hertogenbosch",
-    description: "",
-    primaryLink: "https://miniconf.io/",
-    primaryLinkText: "View Event Details",
-    primaryLinkAriaLabel: "View event details for UtrechtJUG",
-  },
-  {
-    title: "Tulips to Turmeric: Lessons Learned from a Global Team",
-    event: "BelgianJUG",
-    date: "February 3, 2025",
-    status: "Past",
-    type: "Meetup",
-    location: "Leuven, Belgium",
-    description: "",
-    primaryLink: "https://www.meetup.com/belgian-java-user-group/events/305632961/?utm_medium=referral&utm_campaign=share-btn_savedevents_share_modal&utm_source=link&utm_version=v2",
-    primaryLinkText: "View Event Details",
-    primaryLinkAriaLabel: "View event details for BelgianJUG",
-  },
-  {
-    title: "Tulips to Turmeric: Lessons Learned from a Global Team",
-    event: "AmsterdamJUG",
-    date: "January 22, 2025",
-    status: "Past",
-    type: "Meetup",
-    location: "Amsterdam",
-    description: "",
-    primaryLink: "https://www.meetup.com/amsterdam-java-user-group/events/305160845/?utm_medium=referral&utm_campaign=share-btn_savedevents_share_modal&utm_source=link&utm_version=v2",
-    primaryLinkText: "View Event Details",
-    primaryLinkAriaLabel: "View event details for AmsterdamJUG",
-  },
-  {
-    title: "Tulips to Turmeric: Lessons Learned from a Global Team",
-    event: "BrabantJUG",
-    date: "December 11, 2024",
-    status: "Past",
-    type: "Meetup",
-    location: "s-Hertogenbosch",
-    description: "",
-    primaryLink: "https://www.meetup.com/brabant-jug/events/304322148/?utm_medium=referral&utm_campaign=share-btn_savedevents_share_modal&utm_source=link&utm_version=v2",
-    primaryLinkText: "View Event Details",
-    primaryLinkAriaLabel: "View event details for BrabantJUG",
-  },
-  {
-    title: "Tulips to Turmeric: Lessons Learned from a Global Team",
-    event: "J-Fall",
-    date: "November 7, 2024",
-    status: "Past",
-    type: "Conference",
-    location: "Ede",
-    description: "",
-    primaryLink: "https://jfall.nl/",
-    primaryLinkText: "View Event Details",
-    primaryLinkAriaLabel: "View event details for J-Fall",
-  },
-  {
-    title: "Clean Code: Timeless, Just Like ‘Friends’",
-    event: "ABNAMRO DevCon 2024",
-    date: "January 25, 2024",
-    status: "Past",
-    type: "Conference",
-    location: "Amsterdam Zuid",
-    description: "",
-    primaryLink: "",
-    primaryLinkText: "View Event Details",
-    primaryLinkAriaLabel: "View event details for ABNAMRO DevCon 2024",
-  },
-  {
-    title: "Tulips to Turmeric: Lessons Learned from a Global Team",
-    event: "TEQNation 2024",
-    date: "May 22, 2024",
-    status: "Past",
-    type: "Conference",
-    location: "Utrecht",
-    description: "",
-    primaryLink: "https://teqnation.com/",
-    primaryLinkText: "View Event Details",
-    primaryLinkAriaLabel: "View event details for TEQNation 2024",
-  },
-  {
-    title: "Tulips to Turmeric: Lessons Learned from a Global Team",
-    event: "ArnhemJUG",
-    date: "September 22, 2023",
-    status: "Past",
-    type: "Meetup",
-    location: "Arnhem",
-    description: "",
-    primaryLink: "",
-    primaryLinkText: "View Event Details",
-    primaryLinkAriaLabel: "View event details for ArnhemJUG",
-  },
+	{
+		title: "Tulips to Turmeric: Lessons Learned from a Global Team",
+		event: "RotterdamJUG",
+		date: { startDay: 3, month: 6, year: 2025 },
+		status: "Upcoming",
+		type: "Meetup",
+		location: "Rijswijk, Netherlands",
+		description: "",
+		primaryLink: "https://www.meetup.com/rotterdamjug/events/307818817/",
+		primaryLinkText: "View Event Details",
+		primaryLinkAriaLabel: "View event details for RotterdamJUG",
+	},
+	{
+		title: "Tulips to Turmeric: Lessons Learned from a Global Team",
+		event: "Devoxx Poland 2025",
+		date: { startDay: 11, month: 6, year: 2025, endDay: 13 },
+		status: "Upcoming",
+		type: "Conference",
+		location: "Krakow, Poland",
+		description: "",
+		primaryLink: "https://devoxx.pl/talk-details/?id=9660",
+		primaryLinkText: "View Event Details",
+		primaryLinkAriaLabel: "View event details for Devoxx Poland 2025 talk",
+	},
+	{
+		title: "Java Beyond Frameworks: Avoiding Lock-In with Agnostic Design",
+		event: "Devoxx Poland 2025",
+		date: { startDay: 11, month: 6, year: 2025, endDay: 13 },
+		status: "Upcoming",
+		type: "Conference",
+		location: "Krakow, Poland",
+		description: "",
+		primaryLink: "https://devoxx.pl/talk-details/?id=9696",
+		primaryLinkText: "View Event Details",
+		primaryLinkAriaLabel: "View event details for Devoxx Poland 2025 talk",
+	},
+	{
+		title: "Java Beyond Frameworks: Avoiding Lock-In with Agnostic Design",
+		event: "DevBcn Barcelona",
+		date: { startDay: 8, month: 7, year: 2025, endDay: 11 },
+		status: "Upcoming",
+		type: "Conference",
+		location: "Barcelona, Spain",
+		description: "",
+		primaryLink: "https://www.devbcn.com/talk/875233",
+		primaryLinkText: "View Event Details",
+		primaryLinkAriaLabel: "View event details for DevBcn",
+	},
+	{
+		title: "Java Beyond Frameworks: Avoiding Lock-In with Agnostic Design",
+		event: "JavaCro'25",
+		date: { startDay: 12, month: 10, year: 2025, endDay: 15 },
+		status: "Upcoming",
+		type: "Conference",
+		location: "Rovinj, Croatia",
+		description: "",
+		primaryLink: "https://2025.javacro.hr/eng/",
+		primaryLinkText: "View Event Details",
+		primaryLinkAriaLabel: "View event details for JavaCro",
+	},
+	{
+		title: "Tulips to Turmeric: Lessons Learned from a Global Team",
+		event: "JavaCro'25",
+		date: { startDay: 12, month: 10, year: 2025, endDay: 15 },
+		status: "Upcoming",
+		type: "Conference",
+		location: "Rovinj, Croatia",
+		description: "",
+		primaryLink: "https://2025.javacro.hr/eng/",
+		primaryLinkText: "View Event Details",
+		primaryLinkAriaLabel: "View event details for JavaCro",
+	},
+	// Past events
+	{
+		title: "Tulips to Turmeric: Lessons Learned from a Global Team",
+		event: "UtrechtJUG",
+		date: { startDay: 12, month: 5, year: 2025 },
+		status: "Past",
+		type: "Meetup",
+		location: "Utrecht",
+		description: "",
+		primaryLink:
+			"https://www.meetup.com/utrecht-java-user-group/events/305047053/",
+		primaryLinkText: "View Event Details",
+		primaryLinkAriaLabel: "View event details for UtrechtJUG",
+	},
+	{
+		title: "Tulips to Turmeric: Lessons Learned from a Global Team",
+		event: "JUGNoord",
+		date: { startDay: 17, month: 4, year: 2025 },
+		status: "Past",
+		type: "Meetup",
+		location: "Groningen",
+		description: "",
+		primaryLink: "https://www.meetup.com/jug-noord/events/306222257/",
+		primaryLinkText: "View Event Details",
+		primaryLinkAriaLabel: "View event details for UtrechtJUG",
+	},
+	{
+		title: "Front-End Drama? Java's Got You Covered!",
+		event: "ABN AMRO DevCon 2025",
+		date: { startDay: 31, month: 3, year: 2025 },
+		status: "Past",
+		type: "Conference",
+		location: "Amsterdam Zuid",
+		description: "",
+		primaryLink: "",
+		primaryLinkText: "View Event Details",
+		primaryLinkAriaLabel: "View event details for UtrechtJUG",
+	},
+	{
+		title: "Tulips to Turmeric: Lessons Learned from a Global Team",
+		event: "Voxxed Days Zürich 2025",
+		date: { startDay: 25, month: 3, year: 2025 },
+		status: "Past",
+		type: "Conference",
+		location: "Zürich, Switzerland",
+		description: "",
+		primaryLink: "https://zurich.voxxeddays.com/",
+		primaryLinkText: "View Event Details",
+		primaryLinkAriaLabel: "View event details for Voxxed Days Zürich",
+	},
+	{
+		title: "Tulips to Turmeric: Lessons Learned from a Global Team",
+		event: "mini.CONF - Episode X",
+		date: { startDay: 20, month: 3, year: 2025 },
+		status: "Past",
+		type: "Conference",
+		location: "s-Hertogenbosch",
+		description: "",
+		primaryLink: "https://miniconf.io/",
+		primaryLinkText: "View Event Details",
+		primaryLinkAriaLabel: "View event details for UtrechtJUG",
+	},
+	{
+		title: "Tulips to Turmeric: Lessons Learned from a Global Team",
+		event: "BelgianJUG",
+		date: { startDay: 3, month: 2, year: 2025 },
+		status: "Past",
+		type: "Meetup",
+		location: "Leuven, Belgium",
+		description: "",
+		primaryLink:
+			"https://www.meetup.com/belgian-java-user-group/events/305632961/",
+		primaryLinkText: "View Event Details",
+		primaryLinkAriaLabel: "View event details for BelgianJUG",
+	},
+	{
+		title: "Tulips to Turmeric: Lessons Learned from a Global Team",
+		event: "AmsterdamJUG",
+		date: { startDay: 22, month: 1, year: 2025 },
+		status: "Past",
+		type: "Meetup",
+		location: "Amsterdam",
+		description: "",
+		primaryLink:
+			"https://www.meetup.com/amsterdam-java-user-group/events/305160845/",
+		primaryLinkText: "View Event Details",
+		primaryLinkAriaLabel: "View event details for AmsterdamJUG",
+	},
+	{
+		title: "Tulips to Turmeric: Lessons Learned from a Global Team",
+		event: "BrabantJUG",
+		date: { startDay: 11, month: 12, year: 2024 },
+		status: "Past",
+		type: "Meetup",
+		location: "s-Hertogenbosch",
+		description: "",
+		primaryLink: "https://www.meetup.com/brabant-jug/events/304322148/",
+		primaryLinkText: "View Event Details",
+		primaryLinkAriaLabel: "View event details for BrabantJUG",
+	},
+	{
+		title: "Tulips to Turmeric: Lessons Learned from a Global Team",
+		event: "J-Fall",
+		date: { startDay: 7, month: 11, year: 2024 },
+		status: "Past",
+		type: "Conference",
+		location: "Ede",
+		description: "",
+		primaryLink: "https://jfall.nl/",
+		primaryLinkText: "View Event Details",
+		primaryLinkAriaLabel: "View event details for J-Fall",
+	},
+	{
+		title: "Clean Code: Timeless, Just Like 'Friends'",
+		event: "ABNAMRO DevCon 2024",
+		date: { startDay: 25, month: 1, year: 2024 },
+		status: "Past",
+		type: "Conference",
+		location: "Amsterdam Zuid",
+		description: "",
+		primaryLink: "",
+		primaryLinkText: "View Event Details",
+		primaryLinkAriaLabel: "View event details for ABNAMRO DevCon 2024",
+	},
+	{
+		title: "Tulips to Turmeric: Lessons Learned from a Global Team",
+		event: "TEQNation 2024",
+		date: { startDay: 22, month: 5, year: 2024 },
+		status: "Past",
+		type: "Conference",
+		location: "Utrecht",
+		description: "",
+		primaryLink: "https://teqnation.com/",
+		primaryLinkText: "View Event Details",
+		primaryLinkAriaLabel: "View event details for TEQNation 2024",
+	},
+	{
+		title: "Tulips to Turmeric: Lessons Learned from a Global Team",
+		event: "ArnhemJUG",
+		date: { startDay: 22, month: 9, year: 2023 },
+		status: "Past",
+		type: "Meetup",
+		location: "Arnhem",
+		description: "",
+		primaryLink: "",
+		primaryLinkText: "View Event Details",
+		primaryLinkAriaLabel: "View event details for ArnhemJUG",
+	},
 ];
 
+// Simple numeric comparison - no date parsing needed!
+const compareTalkDates = (a: TalkDate, b: TalkDate): number => {
+	if (a.year !== b.year) return a.year - b.year;
+	if (a.month !== b.month) return a.month - b.month;
+	return a.startDay - b.startDay;
+};
+
 const getSortedTalksByStatus = (status: "Upcoming" | "Past"): Talk[] => {
-  const filteredTalks = [...unsortedtalks].filter((talk) => talk.status === status);
-
-  const sortOrder = status === "Upcoming" ? 1 : -1; // 1 for ascending, -1 for descending
-
-  return filteredTalks.sort((a, b) => {
-    const dateStringA = a.date.split(",")[0];
-    const dateStringB = b.date.split(",")[0];
-
-    const dateA = parse(dateStringA, "MMMM d, yyyy", new Date());
-    const dateB = parse(dateStringB, "MMMM d, yyyy", new Date());
-
-    if (!isValid(dateA) || !isValid(dateB)) {
-      console.error("Invalid date format:", dateStringA, "or", dateStringB);
-      return 0;
-    }
-
-    return sortOrder * (dateA.getTime() - dateB.getTime()); // Apply sort order
-  });
+	return unsortedtalks
+		.filter((talk) => talk.status === status)
+		.sort((a, b) => {
+			const comparison = compareTalkDates(a.date, b.date);
+			// Upcoming: earliest first, Past: latest first
+			return status === "Upcoming" ? comparison : -comparison;
+		});
 };
 
 export const upcomingTalks: Talk[] = getSortedTalksByStatus("Upcoming");
