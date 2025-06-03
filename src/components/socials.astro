@@ -1,0 +1,50 @@
+---
+import {
+	BLUESKY_URL,
+	GITHUB_URL,
+	LINKEDIN_URL,
+	STRAVA_URL,
+} from "@/data/socials";
+import BlueSkyIcon from "@/icons/bluesky.astro";
+import GithubIcon from "@/icons/github.astro";
+import LinkedinIcon from "@/icons/linkedin.astro";
+import StravaIcon from "@/icons/strava.astro";
+---
+
+<div class="flex gap-4 justify-center lg:justify-start">
+  <a
+    target="_blank"
+    href={GITHUB_URL}
+    aria-label="GitHub"
+    class="group flex items-center justify-center p-4 rounded-2xl bg-[#1414149c] border border-[var(--white-icon-tr)] hover:bg-[var(--white-icon-tr)] hover:scale-105 transition-all duration-300"
+  >
+    <GithubIcon />
+  </a>
+
+  <a
+    target="_blank"
+    href={LINKEDIN_URL}
+    aria-label="LinkedIn"
+    class="group flex items-center justify-center p-4 rounded-2xl bg-[#1414149c] border border-[var(--white-icon-tr)] hover:bg-[var(--white-icon-tr)] hover:scale-105 transition-all duration-300"
+  >
+    <LinkedinIcon />
+  </a>
+
+  <a
+    target="_blank"
+    href={BLUESKY_URL}
+    aria-label="BlueSky"
+    class="group flex items-center justify-center p-4 rounded-2xl bg-[#1414149c] border border-[var(--white-icon-tr)] hover:bg-[var(--white-icon-tr)] hover:scale-105 transition-all duration-300"
+  >
+    <BlueSkyIcon />
+  </a>
+
+  <a
+    target="_blank"
+    href={STRAVA_URL}
+    aria-label="Strava"
+    class="group flex items-center justify-center p-4 rounded-2xl bg-[#1414149c] border border-[var(--white-icon-tr)] hover:bg-[var(--white-icon-tr)] hover:scale-105 transition-all duration-300"
+  >
+    <StravaIcon />
+  </a>
+</div>

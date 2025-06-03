@@ -1,32 +1,33 @@
 {
-  "name": "portfolio",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/react": "^4.3.0",
-    "@astrojs/tailwind": "^6.0.2",
-    "@types/react": "^19.1.6",
-    "@types/react-dom": "^19.1.5",
-    "astro": "^5.8.0",
-    "date-fns": "^4.1.0",
-    "firebase": "^11.8.1",
-    "ogl": "^1.0.11",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "sharp": "^0.34.2",
-    "typescript": "^5.8.3"
-  },
-  "devDependencies": {
-    "@types/node": "^22.15.19",
-    "prettier": "^3.5.2",
-    "prettier-plugin-astro": "^0.14.1"
-  }
+	"name": "portfolio",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro check && astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@astrojs/check": "^0.9.4",
+		"@astrojs/react": "^4.3.0",
+		"@astrojs/tailwind": "^6.0.2",
+		"@types/react": "^19.1.6",
+		"@types/react-dom": "^19.1.5",
+		"astro": "^5.8.1",
+		"date-fns": "^4.1.0",
+		"firebase": "^11.8.1",
+		"ogl": "^1.0.11",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
+		"sharp": "^0.34.2",
+		"typescript": "^5.8.3"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@types/node": "^22.15.19",
+		"prettier": "^3.5.2",
+		"prettier-plugin-astro": "^0.14.1"
+	}
 }
