@@ -5,7 +5,7 @@ const unsortedtalks: Talk[] = [
     title: "Tulips to Turmeric: Lessons Learned from a Global Team",
     event: "RotterdamJUG",
     date: { startDay: 3, month: 6, year: 2025 },
-    status: "Upcoming",
+    status: "Past",
     type: "Meetup",
     location: "Rijswijk, Netherlands",
     description: "",
