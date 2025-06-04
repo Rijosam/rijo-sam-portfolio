@@ -1,13 +1,14 @@
 ---
 import { Content } from "@/data/blog"; // Assuming you'll create a content.ts data file
+import { BlogContent } from "@/types/blog";
 
 const INITIAL_CONTENT_TO_SHOW = 6;
 
-const chipStyles: Record<Content["type"], string> = {
-  Talk: "bg-rose-500 hover:bg-rose-600 text-white",
-  Podcast: "bg-teal-500 hover:bg-teal-600 text-white",
-  Blog: "bg-yellow-500 hover:bg-yellow-600 text-black",
-  Workshop: "bg-fuchsia-500 hover:bg-fuchsia-600 text-white", // Example Color
+const chipStyles: Record<BlogContent["type"], string> = {
+	Talk: "bg-rose-500 hover:bg-rose-600 text-white",
+	Podcast: "bg-teal-500 hover:bg-teal-600 text-white",
+	Blog: "bg-yellow-500 hover:bg-yellow-600 text-black",
+	Workshop: "bg-fuchsia-500 hover:bg-fuchsia-600 text-white", // Example Color
 };
 
 const contentToShow = Content.slice(0, INITIAL_CONTENT_TO_SHOW);
