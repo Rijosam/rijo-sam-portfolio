@@ -32,6 +32,9 @@ importers:
       firebase:
         specifier: ^11.8.1
         version: 11.8.1
+      install:
+        specifier: ^0.13.0
+        version: 0.13.0
       ogl:
         specifier: ^1.0.11
         version: 1.0.11
@@ -1577,6 +1580,10 @@ packages:
 
   import-meta-resolve@4.1.0:
     resolution: {integrity: sha512-I6fiaX09Xivtk+THaMfAwnA3MVA5Big1WHF1Dfx9hFuvNIWpXnorlkzhcQf6ehrqQiiZECRt1poOAkPmer3ruw==}
+
+  install@0.13.0:
+    resolution: {integrity: sha512-zDml/jzr2PKU9I8J/xyZBQn8rPCAY//UOYNmR01XwNwyfhEWObo2SWfSl1+0tm1u6PhxLwDnfsT/6jB7OUxqFA==}
+    engines: {node: '>= 0.10'}
 
   iron-webcrypto@1.2.1:
     resolution: {integrity: sha512-feOM6FaSr6rEABp/eDfVseKyTMDt+KGpeB35SkVn9Tyn0CqvVsY3EwI0v5i8nMHyJnzCIQf7nsy3p41TPkJZhg==}
@@ -4480,6 +4487,8 @@ snapshots:
   idb@7.1.1: {}
 
   import-meta-resolve@4.1.0: {}
+
+  install@0.13.0: {}
 
   iron-webcrypto@1.2.1: {}
 
