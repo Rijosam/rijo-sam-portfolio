@@ -1,9 +1,25 @@
 :root {
   --background: #181414;
   --sec: #a476ff;
+  --sec-light: #eee5ff; /* A lighter shade of --sec */
   --white: #dfdfdf;
+  --white-light: #f0f0f0; /* A slightly lighter white */
   --white-icon: #f3f3f398;
   --white-icon-tr: #f3f3f310;
+  --card-bg: #00000098;
+  --button-text: #dfdfdf;
+}
+
+.light {
+  --background: #fffdfd;
+  --sec: #a476ff;
+  --sec-light: #eee5ff; /* A lighter shade of --sec */
+  --white: #090808;
+  --white-light: #f0f0f0; /* A slightly lighter white */
+  --white-icon: #00000098;
+  --white-icon-tr: #1c1c1ccb;
+  --card-bg: #eee6e6;
+  --button-text: #dfdfdf;
 }
 
 * {
@@ -16,14 +32,14 @@
   padding: 0;
   margin: 0;
 }
-
-/* *::selection {
-  background-color: var(--sec);
-  color: var(--background);
-} */
+body {
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
 
 .shiny-sec {
-  background: linear-gradient(135deg, #a476ff 25%, #eee5ff 50%, #a476ff 75%);
+  background: linear-gradient(135deg, var(--sec) 25%, var(--sec-light) 50%, var(--sec) 75%);
   background-size: 400% 100%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -32,7 +48,7 @@
 }
 
 .shiny-white {
-  background: linear-gradient(135deg, #ffffff 25%, #f0f0f0 50%, #ffffff 75%);
+  background: linear-gradient(135deg, var(--white) 25%, var(--white-light) 50%, var(--white) 75%);
   background-size: 400% 100%;
   -webkit-background-clip: text;
   background-clip: text;

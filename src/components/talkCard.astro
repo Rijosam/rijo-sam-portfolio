@@ -3,19 +3,19 @@ import type { Talk } from "@/types/talks";
 import { formatTalkDate } from "@/utils/date";
 
 interface Props {
-	talk: Talk;
+  talk: Talk;
 }
 
 const { talk } = Astro.props;
 
 const chipStyles: Record<Talk["type"], string> = {
-	Conference: "bg-sky-600 hover:bg-sky-700 text-white",
-	Workshop: "bg-amber-500 hover:bg-amber-600 text-black",
-	Meetup: "bg-purple-600 hover:bg-purple-700 text-white",
+  Conference: "bg-sky-600 hover:bg-sky-700 text-white",
+  Workshop: "bg-amber-500 hover:bg-amber-600 text-black",
+  Meetup: "bg-purple-600 hover:bg-purple-700 text-white",
 };
 ---
 
-<div class="relative flex flex-col bg-[#181818] border border-[var(--white-icon-tr)] rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 h-full">
+<div class="relative flex flex-col bg-[var(--card-bg)] border border-[var(--white-icon-tr)] rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 h-full">
   <div class="flex-grow space-y-4">
     {/* Header Section */}
     <div>
@@ -72,7 +72,7 @@ const chipStyles: Record<Talk["type"], string> = {
               rel="noopener noreferrer"
               href={talk.primaryLink}
               aria-label={talk.primaryLinkAriaLabel}
-              class="flex-1 text-center px-4 py-2.5 text-sm font-medium text-[var(--white)] bg-[var(--sec)] hover:bg-opacity-90 rounded-lg transition-all duration-200 focus:ring-2 focus:outline-none focus:ring-[var(--sec-light)]"
+              class="flex-1 text-center px-4 py-2.5 text-sm font-medium text-[var(--button-text)] bg-[var(--sec)] hover:bg-opacity-90 rounded-lg transition-all duration-200 focus:ring-2 focus:outline-none focus:ring-[var(--sec-light)]"
             >
               Learn More
             </a>
