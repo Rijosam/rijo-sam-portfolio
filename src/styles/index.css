@@ -11,14 +11,14 @@
 }
 
 .light {
-  --background: #fffdfd;
+  --background: #eee6e6;
   --sec: #a476ff;
   --sec-light: #eee5ff; /* A lighter shade of --sec */
   --white: #090808;
   --white-light: #f0f0f0; /* A slightly lighter white */
   --white-icon: #00000098;
   --white-icon-tr: #1c1c1ccb;
-  --card-bg: #eee6e6;
+  --card-bg: #fffdfd;
   --button-text: #dfdfdf;
 }
 

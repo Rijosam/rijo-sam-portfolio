@@ -6,73 +6,113 @@
         <a href="https://github.com/RijoSam">Rijo Sam</a>. All rights reserved.
       </span>
     </p>
+
+    <!-- Theme Toggle Ship -->
+    <div class="flex justify-center mt-4">
+      <div class="flex items-center justify-center rounded-full bg-[var(--background-secondary)] border border-[#ffffff10] shadow-lg">
+        <button id="theme-system" class="w-12 h-12 rounded-full hover:bg-[#ffffff10] transition-all duration-200" aria-label="Use system theme">
+          <!-- System Icon (Gear) -->
+          <svg class="w-5 h-5 text-[var(--white-icon)] mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+            ></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+          </svg>
+        </button>
+
+        <button id="theme-light" class="w-12 h-12 rounded-full hover:bg-[#ffffff10] transition-all duration-200" aria-label="Use light theme">
+          <!-- Sun Icon (Light Mode) -->
+          <svg id="sun-icon" class="w-5 h-5 text-[var(--white-icon)] mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"></circle>
+            <path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+          </svg>
+        </button>
+
+        <button id="theme-dark" class="w-12 h-12 rounded-full hover:bg-[#ffffff10] transition-all duration-200" aria-label="Use dark theme">
+          <!-- Moon Icon (Dark Mode) -->
+          <svg id="moon-icon" class="w-5 h-5 text-[var(--white-icon)] mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
   </div>
 </footer>
 
-<!-- Theme Toggle Button -->
-<div class="fixed top-6 right-6 z-50">
-  <button
-    id="theme-toggle"
-    class="flex items-center justify-center w-12 h-12 rounded-full bg-[var(--background-secondary)] border border-[#ffffff10] hover:border-[#ffffff20] transition-all duration-200 shadow-lg hover:shadow-xl"
-    aria-label="Toggle theme"
-  >
-    <!-- Sun Icon (Light Mode) -->
-    <svg id="sun-icon" class="w-5 h-5 text-[var(--white-icon)] hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <circle cx="12" cy="12" r="5"></circle>
-      <path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
-    </svg>
-
-    <!-- Moon Icon (Dark Mode) -->
-    <svg id="moon-icon" class="w-5 h-5 text-[var(--white-icon)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-    </svg>
-  </button>
-</div>
+<style>
+  .theme-active svg {
+    stroke: var(--sec) !important; /* Use a visually distinct color */
+  }
+</style>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const themeToggle = document.getElementById("theme-toggle");
-    const sunIcon = document.getElementById("sun-icon");
-    const moonIcon = document.getElementById("moon-icon");
+    const themeSystem = document.getElementById("theme-system");
+    const themeLight = document.getElementById("theme-light");
+    const themeDark = document.getElementById("theme-dark");
     const body = document.body;
+    const buttons = [themeSystem, themeLight, themeDark]; // Array of buttons
 
-    // Function to update icons based on theme
-    function updateIcons(theme) {
+    // Function to update theme
+    function updateTheme(theme) {
       if (theme === "light") {
-        sunIcon.classList.remove("hidden");
-        moonIcon.classList.add("hidden");
         body.classList.add("light");
       } else {
-        sunIcon.classList.add("hidden");
-        moonIcon.classList.remove("hidden");
         body.classList.remove("light");
       }
     }
 
-    // Get system preference
-    const getSystemTheme = () => (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    function highlightActiveButton(theme) {
+      buttons.forEach((button) => button.classList.remove("theme-active"));
 
-    // Get initial theme (localStorage or system preference)
-    const storedTheme = localStorage.getItem("theme");
-    const initialTheme = storedTheme || getSystemTheme();
-
-    updateIcons(initialTheme);
-
-    // Listen for system theme changes if no stored preference
-    if (!storedTheme) {
-      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
-        const systemTheme = e.matches ? "dark" : "light";
-        updateIcons(systemTheme);
-      });
+      if (theme === "system") {
+        themeSystem.classList.add("theme-active");
+      } else if (theme === "light") {
+        themeLight.classList.add("theme-active");
+      } else {
+        themeDark.classList.add("theme-active");
+      }
     }
 
-    // Theme toggle click handler
-    themeToggle.addEventListener("click", () => {
-      const currentTheme = body.classList.contains("light") ? "light" : "dark";
-      const newTheme = currentTheme === "light" ? "dark" : "light";
+    const getSystemTheme = () => (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 
-      updateIcons(newTheme);
-      localStorage.setItem("theme", newTheme);
+    const storedTheme = localStorage.getItem("theme");
+    let initialTheme = storedTheme;
+
+    if (!storedTheme || storedTheme === "system") {
+      initialTheme = getSystemTheme();
+    }
+
+    updateTheme(initialTheme);
+    highlightActiveButton(storedTheme || "system");
+
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+      if (localStorage.getItem("theme") === "system") {
+        const systemTheme = e.matches ? "dark" : "light";
+        updateTheme(systemTheme);
+      }
+    });
+
+    themeSystem.addEventListener("click", () => {
+      localStorage.setItem("theme", "system");
+      const systemTheme = getSystemTheme();
+      updateTheme(systemTheme);
+      highlightActiveButton("system");
+    });
+
+    themeLight.addEventListener("click", () => {
+      updateTheme("light");
+      localStorage.setItem("theme", "light");
+      highlightActiveButton("light");
+    });
+
+    themeDark.addEventListener("click", () => {
+      updateTheme("dark");
+      localStorage.setItem("theme", "dark");
+      highlightActiveButton("dark");
     });
   });
 </script>
