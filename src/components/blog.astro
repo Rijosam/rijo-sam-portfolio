@@ -5,10 +5,10 @@ import { BlogContent } from "@/types/blog";
 const INITIAL_CONTENT_TO_SHOW = 6;
 
 const chipStyles: Record<BlogContent["type"], string> = {
-	Talk: "bg-rose-500 hover:bg-rose-600 text-white",
-	Podcast: "bg-teal-500 hover:bg-teal-600 text-white",
-	Blog: "bg-yellow-500 hover:bg-yellow-600 text-black",
-	Workshop: "bg-fuchsia-500 hover:bg-fuchsia-600 text-white", // Example Color
+  Talk: "bg-rose-500 hover:bg-rose-600 text-white",
+  Podcast: "bg-teal-500 hover:bg-teal-600 text-white",
+  Blog: "bg-yellow-500 hover:bg-yellow-600 text-black",
+  Workshop: "bg-fuchsia-500 hover:bg-fuchsia-600 text-white", // Example Color
 };
 
 const contentToShow = Content.slice(0, INITIAL_CONTENT_TO_SHOW);
@@ -23,7 +23,7 @@ const contentToShow = Content.slice(0, INITIAL_CONTENT_TO_SHOW);
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {
         contentToShow.map((item) => (
-          <div class="relative flex flex-col bg-[#181818] border border-[var(--white-icon-tr)] rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6">
+          <div class="relative flex flex-col bg-[var(--card-bg)] border border-[var(--white-icon-tr)] rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6">
             <div class="flex-grow">
               <div class="mb-3">
                 <h3 class="text-1xl md:text-2xl font-bold mb-1 text-[var(--white)] leading-tight">{item.title}</h3>
@@ -35,7 +35,7 @@ const contentToShow = Content.slice(0, INITIAL_CONTENT_TO_SHOW);
               <a
                 target="_blank"
                 href={item.url}
-                class="flex-grow text-center px-5 py-2.5 text-sm font-medium text-[var(--white)] bg-[var(--sec)] hover:bg-opacity-80 rounded-lg transition-colors duration-300 focus:ring-4 focus:outline-none focus:ring-[var(--sec-light)]"
+                class="flex-grow text-center px-5 py-2.5 text-sm font-medium text-[var(--button-text)] bg-[var(--sec)] hover:bg-opacity-80 rounded-lg transition-colors duration-300 focus:ring-4 focus:outline-none focus:ring-[var(--sec-light)]"
               >
                 View
               </a>

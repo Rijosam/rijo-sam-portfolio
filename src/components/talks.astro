@@ -2,10 +2,7 @@
 import TalkCard from "@/components/talkCard.astro";
 import { pastTalks, upcomingTalks } from "@/data/talks";
 const INITIAL_TALKS_TO_SHOW = 6;
-const talksToShow = [...upcomingTalks, ...pastTalks].slice(
-	0,
-	INITIAL_TALKS_TO_SHOW,
-);
+const talksToShow = [...upcomingTalks, ...pastTalks].slice(0, INITIAL_TALKS_TO_SHOW);
 ---
 
 <section id="talks" class="py-12 border-t border-[#ffffff10] text-[var(--white)]">
@@ -19,7 +16,7 @@ const talksToShow = [...upcomingTalks, ...pastTalks].slice(
       <a
         href="/talks"
         id="view-more-talks-btn"
-        class="px-6 py-3 text-sm font-medium text-[var(--white)] bg-[var(--sec)] hover:bg-opacity-80 rounded-lg transition-colors duration-300 focus:ring-4 focus:outline-none focus:ring-[var(--sec-light)]"
+        class="px-6 py-3 text-sm font-medium text-[var(--button-text)] bg-[var(--sec)] hover:bg-opacity-80 rounded-lg transition-colors duration-300 focus:ring-4 focus:outline-none focus:ring-[var(--sec-light)]"
       >
         View More Talks
       </a>
