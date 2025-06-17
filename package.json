@@ -17,7 +17,7 @@
     "@types/react-dom": "^19.1.6",
     "astro": "^5.8.1",
     "date-fns": "^4.1.0",
-    "firebase": "^11.8.1",
+    "firebase": "^11.9.1",
     "install": "^0.13.0",
     "ogl": "^1.0.11",
     "react": "^19.0.0",
