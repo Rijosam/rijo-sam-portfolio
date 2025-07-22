@@ -49,6 +49,20 @@ const unsortedtalks: Talk[] = [
     primaryLinkText: "View Event Details",
     primaryLinkAriaLabel: "View event details for DevBcn",
   },
+  {
+    title: "Java Beyond Frameworks: Avoiding Lock-In with Agnostic Design",
+    event: "AmsterdamJUG",
+    date: { startDay: 27, month: 8, year: 2025 },
+    status: "Upcoming",
+    type: "Meetup",
+    location: "Amsterdam",
+    description: "",
+    primaryLink: "https://meetu.ps/e/PppJX/Yz81p/i",
+    primaryLinkText: "View Event Details",
+    primaryLinkAriaLabel: "View event details for AmsterdamJUG",
+    presentationLink:"",
+    presentationLinkText:"",
+  },
 
   // Past events
   {
