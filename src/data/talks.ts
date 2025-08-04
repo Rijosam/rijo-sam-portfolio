@@ -63,6 +63,20 @@ const unsortedtalks: Talk[] = [
     presentationLink:"",
     presentationLinkText:"",
   },
+  {
+    title: "Java Beyond Frameworks: Avoiding Lock-In with Agnostic Design",
+    event: "JCConf 2025",
+    date: { startDay: 19, month: 9, year: 2025   },
+    status: "Upcoming",
+    type: "Conference",
+    location: "Taipei, Taiwan",
+    description: "",
+    primaryLink: "https://jcconf.tw/2025/",
+    primaryLinkText: "View Event Details",
+    primaryLinkAriaLabel: "View event details for JCConf",
+    presentationLink:"",
+    presentationLinkText:"",
+  },
 
   // Past events
   {
