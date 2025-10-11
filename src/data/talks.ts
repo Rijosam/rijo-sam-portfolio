@@ -95,7 +95,7 @@ const unsortedtalks: Talk[] = [
     title: "Tulips to Turmeric: Lessons Learned from a Global Team",
     event: "Devoxx Belgium 2025",
     date: { startDay: 6, month: 10, year: 2025, endDay: 10 },
-    status: "Upcoming",
+    status: "Past",
     type: "Conference",
     location: "Antwerp, Belgium",
     description: "",
