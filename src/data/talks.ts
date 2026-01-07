@@ -116,6 +116,8 @@ const unsortedtalks: Talk[] = [
         primaryLinkAriaLabel: "View event details for J-Fall",
         presentationLink: "https://1drv.ms/p/c/9c98deced182940c/EU6tucNCrLhHu0q_P-rXv5oBSr79utDMCEOJRwwoMZAcIQ?e=kAnBFN",
         presentationLinkText: "slides link",
+        videoLink: "https://youtu.be/O4E3iWoaTTQ?si=mHo5ZUUABu3zf5yi",
+        videoLinkText: "Youtube link",
     },
     {
         title: "Tulips to Turmeric: Lessons Learned from a Global Team",
