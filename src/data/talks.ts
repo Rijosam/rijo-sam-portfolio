@@ -2,6 +2,30 @@ import type {Talk, TalkDate} from "@/types/talks";
 
 const unsortedtalks: Talk[] = [
     {
+        title: "Java Beyond Frameworks: Avoiding Lock-In with Agnostic Design",
+        event: "JCON EUROPE 2026",
+        date: {startDay: 20, month: 4, year: 2026, endDay: 23},
+        status: "Upcoming",
+        type: "Conference",
+        location: "Köln, Germany",
+        description: "",
+        primaryLink: "https://schedule.jcon.one/2026/?day=2026-04-21&selectedSession=1049079",
+        primaryLinkText: "View Event Details",
+        primaryLinkAriaLabel: "View event details",
+    },
+    {
+        title: "Spring Security, What Went Wrong and How We Fixed It",
+        event: "Java Day Istanbul 2026",
+        date: {startDay: 18, month: 4, year: 2026},
+        status: "Upcoming",
+        type: "Conference",
+        location: "Istanbul, Turkey",
+        description: "",
+        primaryLink: "https://www.javaday.istanbul/",
+        primaryLinkText: "View Event Details",
+        primaryLinkAriaLabel: "View event details",
+    },
+    {
         title: "Tulips to Turmeric: Lessons Learned from a Global Team",
         event: "RotterdamJUG",
         date: {startDay: 3, month: 6, year: 2025},
