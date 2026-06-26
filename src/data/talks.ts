@@ -5,7 +5,7 @@ const unsortedtalks: Talk[] = [
         title: "Java Beyond Frameworks: Avoiding Lock-In with Agnostic Design",
         event: "BrabantJUG",
         date: {startDay: 23, month: 6, year: 2026},
-        status: "Upcoming",
+        status: "Past",
         type: "Meetup",
         location: "s-Hertogenbosch",
         description: "",
